@@ -2644,3 +2644,9 @@ async def get_features(request: Request):
 > - 💡 Clean up old feature flags — they become **tech debt** if left indefinitely
 
 ---
+
+*⬅️ Previous: [08 — Theoretical & Conceptual](./08-theoretical-conceptual.md)*
+
+*📝 Next: [Interview Tips →](./INTERVIEW_TIPS.md)*
+
+*⚡ Quick Reference: [All 113 Questions →](./QUICK_REFERENCE.md)*

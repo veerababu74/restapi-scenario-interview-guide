@@ -2404,3 +2404,9 @@ async def get_user(user_id: int, request: Request):
 > - 💡 Use **Kubernetes** with Istio or Argo Rollouts for automated canary deployments
 
 ---
+
+*⬅️ Previous: [07 — Real-World Integration](./07-real-world-integration.md)*
+
+*📝 Next: [09 — Advanced Scenarios →](./09-advanced-scenarios.md)*
+
+*⚡ Quick Reference: [All 113 Questions →](./QUICK_REFERENCE.md)*
