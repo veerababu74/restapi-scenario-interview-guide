@@ -1693,4 +1693,4 @@ async def get_dashboard(user_id: str):
 
 *📝 Next: [Interview Tips →](./INTERVIEW_TIPS.md)*
 
-*⚡ Quick Reference: [All 70 Questions →](./QUICK_REFERENCE.md)*
+*⚡ Quick Reference: [All 113 Questions →](./QUICK_REFERENCE.md)*

@@ -1,6 +1,6 @@
-# ⚡ Quick Reference — All 70 Questions
+# ⚡ Quick Reference — All 113 Questions
 
-> One-line answers to all 70 questions. Perfect for last-minute review.
+> One-line answers to all 113 questions. Perfect for last-minute review.
 
 ---
 
@@ -123,6 +123,63 @@
 
 ---
 
+## 🔧 Advanced Scenarios (Q71–Q90)
+
+| Q# | Scenario | One-Line Answer | Diff | Freq |
+|----|----------|-----------------|------|------|
+| 71 | Duplicate webhook deliveries from Stripe | Store event ID before processing + return 200 fast + process async + verify signature | 🟡 | ★★★ |
+| 72 | Images load slowly, CDN not being used | Return CDN URLs (not S3 direct) + add Cache-Control headers + normalize query strings | 🟢 | ★★☆ |
+| 73 | Support both JSON and XML response formats | Content negotiation via Accept header + return 406 for unsupported + default to JSON | 🟢 | ★★☆ |
+| 74 | Throttle specific abusive client | Per-client rate limits in Redis by API key/user ID + configurable override list | 🟡 | ★★☆ |
+| 75 | Audit log for every data change | Capture who/what/when/before/after + write async + append-only storage + request_id | 🟡 | ★★★ |
+| 76 | Manage API keys for 3rd party devs | Hash keys (never store raw) + prefixes + per-key rate limits + rotation support | 🟡 | ★★★ |
+| 77 | Slow downstream service during Black Friday | Bulkhead pattern: isolated pools per service + timeouts + fallbacks for optional services | 🔴 | ★★★ |
+| 78 | Search returns inconsistent results | Check replication lag + add deterministic sort tie-breakers + normalize cache keys | 🟡 | ★★☆ |
+| 79 | Users randomly get logged out | Clock skew (add leeway) + refresh token rotation + shared session store (Redis) | 🟢 | ★★★ |
+| 80 | Design notification system (push/email/SMS) | Async queues per channel + user preferences + templates + per-channel delivery tracking | 🔴 | ★★☆ |
+| 81 | Long-running endpoint holds DB connection | Fetch → release connection → process in memory → reconnect to write; or use background tasks | 🟡 | ★★★ |
+| 82 | Kubernetes liveness/readiness probes | Liveness: simple alive check; Readiness: check DB/Redis deps; Startup: init complete | 🟢 | ★★★ |
+| 83 | Handle time zones for global users | Store UTC always + require timezone in input + ISO 8601 format + convert on display | 🟢 | ★★☆ |
+| 84 | API returns 200 for errors (legacy) | Gradual migration: opt-in header → /v2 with proper codes → deprecate v1 with Sunset header | 🟡 | ★★☆ |
+| 85 | Implement undo/rollback feature | Command pattern: store before-state with each mutation + undo window + reverse operation | 🔴 | ★☆☆ |
+| 86 | Outdated API docs breaking clients | Code-first with FastAPI auto-docs + Pydantic models + Schemathesis contract tests in CI | 🟢 | ★★★ |
+| 87 | Mask PII in API logs | Middleware: field name matching + regex patterns + partial masking (last 4 digits) | 🟡 | ★★★ |
+| 88 | Concurrent file uploads to same resource | Optimistic locking with ETags + If-Match header + 412 on conflict + version history | 🟡 | ★★☆ |
+| 89 | Bulk operations endpoint | POST /resource/bulk + per-item status + 207 Multi-Status + max batch size + async for 10K+ | 🟡 | ★★★ |
+| 90 | Feature flags per user/tenant | Deterministic hash for rollout + allowlist + tenant gates + kill switch + clean up old flags | 🔴 | ★★☆ |
+
+---
+
+## 📘 Theoretical & Conceptual (Q91–Q113)
+
+| Q# | Topic | One-Line Answer | Diff | Freq |
+|----|-------|-----------------|------|------|
+| 91 | REST vs GraphQL vs gRPC | REST for public APIs + GraphQL for mobile/varied clients + gRPC for internal microservices | 🟡 | ★★★ |
+| 92 | HTTP/1.1 vs HTTP/2 vs HTTP/3 | HTTP/2: multiplexing + header compression; HTTP/3: QUIC (no TCP HOL blocking) + 0-RTT | 🟡 | ★★☆ |
+| 93 | Idempotency explained | Same request N times = same result as 1 time; GET/PUT/DELETE yes, POST no (use idempotency keys) | 🟢 | ★★★ |
+| 94 | Stateless vs Stateful APIs | Stateless: JWT + any server handles any request + scales horizontally; Stateful needs sticky sessions | 🟢 | ★★★ |
+| 95 | CAP Theorem | During partition: choose Consistency (banking) or Availability (social feeds); can't have both | 🔴 | ★★☆ |
+| 96 | HATEOAS | API responses include links to available actions; highest REST maturity but rarely fully implemented | 🟡 | ★★☆ |
+| 97 | 6 REST constraints | Client-Server + Stateless + Cacheable + Uniform Interface + Layered System + Code on Demand (optional) | 🟡 | ★★★ |
+| 98 | API Gateway vs LB vs Reverse Proxy | Reverse proxy: forward requests; LB: distribute traffic; Gateway: auth + rate limit + routing | 🟡 | ★★★ |
+| 99 | Sync vs Async API patterns | Sync for <2s operations (200 OK); Async for >2s (202 Accepted + job_id + polling/webhook) | 🟡 | ★★★ |
+| 100 | ETags and conditional requests | ETag: resource version; If-None-Match → 304 (caching); If-Match → 412 (concurrency control) | 🟢 | ★★☆ |
+| 101 | Content negotiation | Accept header specifies format; server returns matching Content-Type or 406 Not Acceptable | 🟢 | ★★☆ |
+| 102 | Rate limiting algorithms | Token bucket (most popular, allows bursts) > sliding window (fair) > fixed window (simple, burst edge) | 🟡 | ★★★ |
+| 103 | Circuit breaker pattern | 3 states: Closed (normal) → Open (fail fast) → Half-Open (test); prevents cascading failures | 🔴 | ★★★ |
+| 104 | Saga pattern | Sequence of local transactions + compensating transactions on failure; orchestration vs choreography | 🔴 | ★★☆ |
+| 105 | Event-driven vs Request-Response | Request-response: sync, tight coupling; Event-driven: async, loose coupling via message broker | 🟡 | ★★☆ |
+| 106 | OAuth 2.0 flows | Auth Code (web) + PKCE (mobile/SPA) + Client Credentials (machine-to-machine); Implicit deprecated | 🟡 | ★★★ |
+| 107 | API versioning strategies | URL path (/v1/) most popular + header versioning cleaner; send Deprecation/Sunset headers | 🟡 | ★★★ |
+| 108 | Idempotency keys | Client sends unique key in header; server caches result by key; prevents duplicate payments | 🟡 | ★★★ |
+| 109 | Backpressure and flow control | Signal upstream to slow down: rate limit (429) + load shedding (503) + bounded queues | 🔴 | ★☆☆ |
+| 110 | Contract-first API design | Write OpenAPI spec first → generate code/SDKs; ensures agreement; use Schemathesis to validate | 🟡 | ★★☆ |
+| 111 | Retry strategies | Exponential backoff (1s,2s,4s,8s) + jitter (prevent thundering herd) + max retries + only retryable errors | 🟡 | ★★★ |
+| 112 | Service mesh vs API gateway | Gateway: edge/north-south (client→service); Mesh: internal/east-west (service→service, mTLS, sidecars) | 🔴 | ★★☆ |
+| 113 | Blue-green vs Canary deployments | Blue-green: instant switch (2x infra); Canary: gradual 1%→100% (lower risk); both enable instant rollback | 🟡 | ★★☆ |
+
+---
+
 ## 🔑 Most Important Concepts to Remember
 
 ### Top 10 Patterns Every Interview Tests
@@ -225,7 +282,7 @@ if result.rowcount == 0:
 
 ---
 
-*✅ You've reviewed all 70 questions! Now go ace that interview!*
+*✅ You've reviewed all 113 questions! Now go ace that interview!*
 
 *📚 For detailed answers and code examples, see the individual category files:*
 - *[01 - Performance](./01-performance-optimization.md)*
@@ -235,3 +292,5 @@ if result.rowcount == 0:
 - *[05 - Database](./05-database-data-management.md)*
 - *[06 - Testing](./06-testing-deployment.md)*
 - *[07 - Integration](./07-real-world-integration.md)*
+- *[08 - Theoretical & Conceptual](./08-theoretical-conceptual.md)*
+- *[09 - Advanced Scenarios](./09-advanced-scenarios.md)*

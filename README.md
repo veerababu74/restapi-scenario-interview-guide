@@ -1,9 +1,9 @@
 # 🚀 Ultimate REST API Scenario-Based Interview Guide
 
-> **FastAPI & Flask | 70 Real-World Scenarios | Visual Diagrams | Working Code**
+> **FastAPI & Flask | 113 Real-World Scenarios & Concepts | Visual Diagrams | Working Code**
 
 [![Difficulty](https://img.shields.io/badge/Level-Junior%20to%20Senior-blue)](.)
-[![Questions](https://img.shields.io/badge/Questions-70-green)](.)
+[![Questions](https://img.shields.io/badge/Questions-113-green)](.)
 [![Framework](https://img.shields.io/badge/Framework-FastAPI%20%7C%20Flask-orange)](.)
 [![Language](https://img.shields.io/badge/Language-Python-yellow)](.)
 
@@ -11,7 +11,7 @@
 
 ## 📖 Introduction
 
-This guide was created to help you **crack any REST API interview** — from junior to senior level. After struggling with scenario-based questions in real interviews, this comprehensive resource covers **70 realistic scenarios** that interviewers actually ask.
+This guide was created to help you **crack any REST API interview** — from junior to senior level. After struggling with scenario-based questions in real interviews, this comprehensive resource covers **90 realistic scenario-based questions** and **23 theoretical/conceptual questions** that interviewers actually ask.
 
 Each question mirrors what you'd face at companies like:
 - 🏢 Product companies (startups to FAANG)
@@ -20,6 +20,7 @@ Each question mirrors what you'd face at companies like:
 
 ### What Makes This Guide Different?
 - ✅ **Real scenarios** — Not textbook definitions
+- ✅ **Theoretical & conceptual depth** — REST constraints, CAP theorem, OAuth flows, networking
 - ✅ **Step-by-step answers** — How to think through problems live
 - ✅ **Visual diagrams** — ASCII art + Mermaid flowcharts
 - ✅ **Working code** — Copy-paste ready FastAPI & Flask examples
@@ -31,11 +32,12 @@ Each question mirrors what you'd face at companies like:
 
 ### For Interview Prep (Recommended Order)
 1. Start with **QUICK_REFERENCE.md** to get a bird's-eye view
-2. Go through each category file (01 → 07) systematically
-3. For each question: **read the scenario → try to answer → check the solution**
-4. Practice explaining diagrams out loud
-5. Type out (don't copy) the code examples to build muscle memory
-6. Review **INTERVIEW_TIPS.md** before your actual interview
+2. Go through each category file (01 → 09) systematically
+3. Study **08-theoretical-conceptual.md** for concept-based questions
+4. For each question: **read the scenario → try to answer → check the solution**
+5. Practice explaining diagrams out loud
+6. Type out (don't copy) the code examples to build muscle memory
+7. Review **INTERVIEW_TIPS.md** before your actual interview
 
 ### Difficulty Levels
 | Badge | Level | Who Should Know |
@@ -167,13 +169,68 @@ Each question mirrors what you'd face at companies like:
 | 69 | Migrate Flask API to FastAPI without downtime | 🔴 Senior | ★★☆ |
 | 70 | Graceful degradation when downstream services fail | 🔴 Senior | ★★★ |
 
+### [08 — Theoretical & Conceptual](./08-theoretical-conceptual.md) (Q91–Q113)
+> REST theory, networking, HTTP protocols, OAuth, comparisons, and trade-offs
+
+| Q# | Scenario | Difficulty | Frequency |
+|----|----------|------------|-----------|
+| 91 | REST vs GraphQL vs gRPC — when to use which | 🟡 Mid | ★★★ |
+| 92 | HTTP/1.1 vs HTTP/2 vs HTTP/3 — key differences for APIs | 🟡 Mid | ★★☆ |
+| 93 | Idempotency explained — which methods are idempotent | 🟢 Junior | ★★★ |
+| 94 | Stateless vs Stateful APIs — trade-offs | 🟢 Junior | ★★★ |
+| 95 | CAP Theorem — consistency, availability, partition tolerance | 🔴 Senior | ★★☆ |
+| 96 | HATEOAS — what it is and when to use it | 🟡 Mid | ★★☆ |
+| 97 | The 6 REST architectural constraints (Roy Fielding) | 🟡 Mid | ★★★ |
+| 98 | API Gateway vs Load Balancer vs Reverse Proxy | 🟡 Mid | ★★★ |
+| 99 | Synchronous vs Asynchronous API design patterns | 🟡 Mid | ★★★ |
+| 100 | ETags and conditional requests — cache validation | 🟢 Junior | ★★☆ |
+| 101 | Content negotiation — Accept headers, multiple formats | 🟢 Junior | ★★☆ |
+| 102 | API rate limiting algorithms compared | 🟡 Mid | ★★★ |
+| 103 | Circuit breaker pattern — states and when to use | 🔴 Senior | ★★★ |
+| 104 | Saga pattern — distributed transactions in microservices | 🔴 Senior | ★★☆ |
+| 105 | Event-driven vs Request-Response architecture | 🟡 Mid | ★★☆ |
+| 106 | OAuth 2.0 flows — Auth Code, Client Credentials, PKCE | 🟡 Mid | ★★★ |
+| 107 | REST API versioning strategies compared | 🟡 Mid | ★★★ |
+| 108 | Idempotency keys — design and implementation | 🟡 Mid | ★★★ |
+| 109 | Backpressure and flow control in APIs | 🔴 Senior | ★☆☆ |
+| 110 | API contract-first design (OpenAPI/Swagger-first) | 🟡 Mid | ★★☆ |
+| 111 | Retry strategies — exponential backoff, jitter | 🟡 Mid | ★★★ |
+| 112 | Service mesh vs API gateway | 🔴 Senior | ★★☆ |
+| 113 | Blue-green vs Canary deployments for APIs | 🟡 Mid | ★★☆ |
+
+### [09 — Advanced Scenarios](./09-advanced-scenarios.md) (Q71–Q90)
+> Real-world edge cases, integrations, and operational challenges
+
+| Q# | Scenario | Difficulty | Frequency |
+|----|----------|------------|-----------|
+| 71 | Handle duplicate webhook deliveries from Stripe/PayPal | 🟡 Mid | ★★★ |
+| 72 | Users complain images load slowly — CDN not being used | 🟢 Junior | ★★☆ |
+| 73 | API needs to support both JSON and XML response formats | 🟢 Junior | ★★☆ |
+| 74 | Throttle a specific abusive client without blocking others | 🟡 Mid | ★★☆ |
+| 75 | Build an audit log for every data change in your API | 🟡 Mid | ★★★ |
+| 76 | API called by 3rd party developers — manage API keys | 🟡 Mid | ★★★ |
+| 77 | Downstream microservice slow during Black Friday — isolate it | 🔴 Senior | ★★★ |
+| 78 | Search API returns different results for same query intermittently | 🟡 Mid | ★★☆ |
+| 79 | Users get logged out randomly — session/token expiry bug | 🟢 Junior | ★★★ |
+| 80 | Design a REST API for a notification system (push, email, SMS) | 🔴 Senior | ★★☆ |
+| 81 | Long-running endpoint holds DB connection for 30 seconds | 🟡 Mid | ★★★ |
+| 82 | Implement health check endpoints for Kubernetes probes | 🟢 Junior | ★★★ |
+| 83 | Handle time zones correctly across global users | 🟢 Junior | ★★☆ |
+| 84 | API returns 200 OK even for errors — legacy system | 🟡 Mid | ★★☆ |
+| 85 | Implement an undo/rollback feature for API operations | 🔴 Senior | ★☆☆ |
+| 86 | API documentation is outdated — clients are breaking | 🟢 Junior | ★★★ |
+| 87 | Mask/redact sensitive fields (PII) in API logs | 🟡 Mid | ★★★ |
+| 88 | Handle concurrent file uploads to same resource | 🟡 Mid | ★★☆ |
+| 89 | Design API endpoint for bulk operations (create/update/delete) | 🟡 Mid | ★★★ |
+| 90 | API needs feature flags — enable features per user/tenant | 🔴 Senior | ★★☆ |
+
 ---
 
 ### [📝 Interview Tips](./INTERVIEW_TIPS.md)
 > STAR method, communication strategies, common mistakes
 
 ### [⚡ Quick Reference](./QUICK_REFERENCE.md)
-> One-line answers to all 70 questions — perfect for last-minute review
+> One-line answers to all 113 questions — perfect for last-minute review
 
 ---
 
@@ -191,6 +248,13 @@ If you have limited time, focus on these (asked in almost every interview):
 8. **Q33** — API versioning
 9. **Q49** — N+1 query problem
 10. **Q65** — Idempotent POST requests
+
+### Also Highly Recommended (New)
+11. **Q93** — Idempotency explained (conceptual)
+12. **Q97** — The 6 REST constraints
+13. **Q91** — REST vs GraphQL vs gRPC
+14. **Q82** — Kubernetes health check endpoints
+15. **Q102** — Rate limiting algorithms compared
 
 ---
 
